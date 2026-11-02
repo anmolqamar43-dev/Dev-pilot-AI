@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1020">
+
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+
+    <title>DevPilot AI | AI Project Builder</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="app-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="brand">
+                <span class="brand-icon">D</span>
+                <span>DevPilot <span class="brand-highlight">AI</span></span>
+            </a>
+
+            <div class="workspace-label">WORKSPACE</div>
+
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-item active">
+                    <span>⌂</span> Dashboard
+                </a>
+
+                <a href="#analyzer" class="nav-item">
+                    <span>⌕</span> Prompt Analyzer
+                </a>
+
+                <a href="#projects" class="nav-item">
+                    <span>▤</span> My Projects
+                </a>
+
+                <a href="#chatbot" class="nav-item">
+                    <span>✳</span> AI Assistant
+                </a>
+
+                <a href="#notes" class="nav-item">
+                    <span>▧</span> Project Notes
+                </a>
+
+                <a href="#deliverables" class="nav-item">
+                    <span>⇩</span> Deliverables
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="status-card">
+                    <span class="status-dot"></span>
+                    <div>
+                        <strong>DevPilot AI</strong>
+                        <p>Project workspace</p>
+                    </div>
+                </div>
+
+                <p class="sidebar-footer">Built for ideas that become real.</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="dashboard">
+
+            <header class="topbar">
+                <div>
+                    <p class="breadcrumb">Workspace / Dashboard</p>
+                    <h2>Project Dashboard</h2>
+                </div>
+
+                <div class="topbar-right">
+                    <span class="connection-status">
+                        <span class="status-dot"></span>
+                        AI Workspace
+                    </span>
+
+                    <div class="avatar">DP</div>
+                </div>
+            </header>
+
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-content">
+                    <span class="eyebrow">YOUR AI DEVELOPMENT PARTNER</span>
+
+                    <h1>Turn your ideas into<br>
+                        <span class="gradient-text">complete projects.</span>
+                    </h1>
+
+                    <p>
+                        Analyze assignments, plan your architecture, generate code,
+                        prepare reports and build your next project with AI.
+                    </p>
+
+                    <a href="#analyzer" class="primary-button">
+                        Start a New Project <span>→</span>
+                    </a>
+                </div>
+
+                <div class="hero-graphic" aria-hidden="true">
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+                    <div class="hero-core">✳</div>
+                    <div class="floating-card card-top">
+                        <span class="mini-icon purple">✦</span>
+                        <span>AI Powered</span>
+                    </div>
+                    <div class="floating-card card-bottom">
+                        <span class="mini-icon green">✓</span>
+                        <span>Build smarter</span>
+                    </div>
+                </div>
+            </section>
+            <article class="stat-card">
+    <div class="stat-top">
+        <span class="stat-icon purple">📁</span>
+        <span class="stat-label">GENERATED FILES</span>
+    </div>
+    <h3 id="totalGeneratedFiles">0</h3>
+    <p>Total files across saved projects</p>
+</article>
+
+            <!-- Quick Stats -->
+            <section class="stats-grid">
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-icon purple">▤</span>
+                        <span class="stat-label">WORKSPACE</span>
+                    </div>
+                    <h3 id="projectCount">0</h3>
+                    <p>Projects created in this session</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-icon blue">✳</span>
+                        <span class="stat-label">AI TOOLS</span>
+                    </div>
+                    <h3>01</h3>
+                    <p>Prompt analyzer connected to backend</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-icon green">⌘</span>
+                        <span class="stat-label">DEVELOPMENT</span>
+                    </div>
+                    <h3>Ready</h3>
+                    <p>Start by analyzing your assignment</p>
+                </article>
+            </section>
+
+            <!-- Prompt Analyzer -->
+            <section class="section-block" id="analyzer">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">STEP 01 · UNDERSTAND</span>
+                        <h2>Analyze your project prompt</h2>
+                        <p>Paste your assignment and let AI organize the requirements.</p>
+                    </div>
+
+                    <span class="section-badge">Groq AI</span>
+                </div>
+
+                <div class="analyzer-card">
+                    <form id="analyzeForm">
+
+                        <label for="projectName">Project name</label>
+                        <input
+                            type="text"
+                            id="projectName"
+                            name="project_name"
+                            placeholder="e.g. AI Study Planner"
+                            maxlength="150"
+                            required
+                        >
+
+                        <div class="label-row">
+                            <label for="projectPrompt">Project assignment / prompt</label>
+                            <span>Minimum 20 characters</span>
+                        </div>
+
+                        <textarea
+                            id="projectPrompt"
+                            name="prompt"
+                            rows="8"
+                            minlength="20"
+                            maxlength="20000"
+                            placeholder="Paste your complete assignment here...
+
+Example: Build an AI-powered application using Python and FastAPI. Include a responsive frontend, database, AI features, testing and deployment instructions."
+                            required
+                        ></textarea>
+
+                        <div class="form-footer">
+                            <p>✦ AI will identify requirements and missing information.</p>
+
+                            <button type="submit" class="primary-button" id="analyzeButton">
+                                <span>✳</span> Analyze Prompt <span>→</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Analysis Results -->
+                <div id="analysisStatus" class="analysis-status" role="status" aria-live="polite"></div>
+                <section id="analysisResults" class="results-card" hidden>
+                    <div class="results-heading">
+                        <div>
+                            <span class="eyebrow">AI ANALYSIS</span>
+                            <h2 id="resultProjectName">Project requirements</h2>
+                        </div>
+                        <span class="section-badge">Analysis complete</span>
+                    </div>
+
+                    <div id="resultsContent" class="results-grid"></div>
+                </section>
+            </section>
+            <!-- AI Assistant Chatbot -->
+            <section class="section-block" id="chatbot">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">STEP 02 · BUILD</span>
+                        <h2>AI Project Assistant</h2>
+                        <p>Ask questions about your assignment, architecture, code, or errors.</p>
+                    </div>
+                    <span class="section-badge">Groq AI</span>
+                </div>
+
+                <div class="analyzer-card chatbot-card">
+                    <div class="chat-welcome">
+                        <div class="tool-icon purple">✳</div>
+                        <div>
+                            <h3>Let's build your project.</h3>
+                            <p>Enter your project details and ask your first question.</p>
+                        </div>
+                    </div>
+
+                    <form id="chatForm">
+                        <label for="chatProjectName">Project name</label>
+                        <input
+                            type="text"
+                            id="chatProjectName"
+                            placeholder="e.g. AI Study Planner"
+                            maxlength="150"
+                            required
+                        >
+
+                        <label for="chatProjectPrompt">Project assignment</label>
+                        <textarea
+                            id="chatProjectPrompt"
+                            rows="4"
+                            maxlength="20000"
+                            placeholder="Paste your project assignment here..."
+                            required
+                        ></textarea>
+
+                        <div id="chatMessages" class="chat-messages" aria-live="polite">
+                            <div class="chat-message assistant-message">
+                                Hi! I'm DevPilot AI. Share your project assignment and ask me anything about it.
+                            </div>
+                        </div>
+
+                        <label for="chatMessage">Your question</label>
+                        <textarea
+                            id="chatMessage"
+                            rows="3"
+                            maxlength="10000"
+                            placeholder="e.g. Explain the backend structure step by step..."
+                            required
+                        ></textarea>
+
+                        <div id="chatStatus" class="analysis-status" role="status" aria-live="polite"></div>
+
+                        <div class="form-footer">
+                            <p>✦ Answers are generated using your project context.</p>
+                            <button type="submit" class="primary-button" id="chatButton">
+                                Ask AI <span>→</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+<!-- AI Project Code Generator -->
+<section class="section-block" id="code-generator">
+
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">STEP 03 · GENERATE</span>
+            <h2>AI Project Code Generator</h2>
+            <p>Turn your project requirements into a structured codebase.</p>
+        </div>
+
+        <span class="section-badge">Groq AI</span>
+    </div>
+
+    <div class="analyzer-card">
+
+        <form id="generateProjectForm">
+
+            <label for="generateProjectName">Project name</label>
+            <input
+                type="text"
+                id="generateProjectName"
+                name="project_name"
+                placeholder="e.g. Student Management System"
+                maxlength="150"
+                required
+            >
+
+            <label for="generateProjectPrompt">Project requirements</label>
+            <textarea
+                id="generateProjectPrompt"
+                name="prompt"
+                rows="7"
+                minlength="20"
+                maxlength="20000"
+                placeholder="Describe the project you want AI to build..."
+                required
+            ></textarea>
+
+            <div class="form-footer">
+                <p>✦ AI will generate project files and setup instructions.</p>
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                    id="generateProjectButton"
+                >
+                    Generate Project <span>→</span>
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div
+        id="generateProjectStatus"
+        class="analysis-status"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+    <section id="generatedProjectResults" class="results-card" hidden>
+        
+
+        <div class="results-heading">
+            <div>
+                <span class="eyebrow">GENERATED PROJECT</span>
+                <h2 id="generatedProjectName">Your Project</h2>
+            </div>
+            <span class="section-badge">AI Generated</span>
+        </div>
+
+        <p id="generatedProjectSummary"></p>
+
+        <h3>Project Files</h3>
+
+
+<button
+    type="button"
+    id="downloadProjectButton"
+    class="primary-button"
+>
+    ↓ Download Complete Project (ZIP)
+</button>
+
+<p
+    id="downloadProjectStatus"
+    class="analysis-status"
+    role="status"
+    aria-live="polite"
+></p>
+
+<div class="project-structure-section">
+    <h3>📁 Project Structure</h3>
+    <p class="section-description">Explore your generated project files and folders.</p>
+    <div id="projectStructureTree" class="project-structure-tree">
+        <p class="tree-placeholder">Generate a project to see its file structure here.</p>
+    </div>
+</div>
+
+
+        <div id="generatedProjectFiles" class="results-grid"></div>
+
+
+        <div id="selectedFilePreview" class="selected-file-preview" hidden>
+    <div class="preview-header">
+        <h3>📄 File Code Preview</h3>
+        <button type="button" id="closeFilePreview" class="close-preview-button">
+            ✕ Close
+        </button>
+    </div>
+
+    <pre><code id="selectedFileCode"></code></pre>
+</div>
+
+
+        <h3>Setup Instructions</h3>
+        <ol id="generatedProjectInstructions"></ol>
+
+    </section>
+ 
+</section>
+<!-- Project History Section -->
+<section id="projectHistorySection" class="project-history-section">
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">YOUR WORKSPACE</span>
+            <h2>📚 Project History</h2>
+            <p>View and manage your previously generated projects.</p>
+        </div>
+    </div>
+
+    <div id="projectHistoryList" class="project-history-list">
+        <p>Your generated projects will appear here.</p>
+    </div>
+</section>
+
+
+            <!-- Tools -->
+             <!-- Project Notes -->
+<section class="section-block" id="projectNotes">
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">YOUR WORKSPACE</span>
+            <h2>📝 Project Notes</h2>
+            <p>Save ideas, requirements and important project decisions.</p>
+        </div>
+        <span class="section-badge">Personal Notes</span>
+    </div>
+
+    <div class="analyzer-card notes-card">
+        <form id="projectNotesForm">
+            <label for="noteTitle">Note title</label>
+            <input
+                type="text"
+                id="noteTitle"
+                placeholder="e.g. Project requirements"
+                maxlength="150"
+                required
+            >
+
+            <label for="noteContent">Your notes</label>
+            <textarea
+                id="noteContent"
+                rows="5"
+                maxlength="10000"
+                placeholder="Write your ideas, tasks or important decisions here..."
+                required
+            ></textarea>
+
+            <div class="form-footer">
+                <p id="notesStatus" role="status" aria-live="polite">
+                    Your notes will be saved in this browser.
+                </p>
+
+                <button type="submit" class="primary-button" id="saveNoteButton">
+                    Save Note →
+                </button>
+            </div>
+        </form>
+
+        <div class="notes-list-section">
+            <h3>Saved Notes</h3>
+            <div id="projectNotesList" class="project-notes-list">
+                <p>Your saved notes will appear here.</p>
+            </div>
+        </div>
+    </div>
+</section>
+            
+                  
+
+            <footer class="page-footer">
+                <span>DevPilot AI</span>
+                <span>From prompt to project — one step at a time.</span>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
